@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--根据namespace来确定此文件映射那个对象-->
+<mapper namespace="com.hector.mappers.UserMapper">
+
+    <!--设置了type alias 以后这里可以写别名,否则需要写全类名-->
+    <select id="all" resultType="User">
+    select * from users
+  </select>
+</mapper>
