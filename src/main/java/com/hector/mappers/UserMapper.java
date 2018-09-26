@@ -1,9 +1,16 @@
 package com.hector.mappers;
 
 import com.hector.models.User;
-
 import java.util.List;
 
 public interface UserMapper {
-    List<User> all();
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(User record);
+
+    User selectByPrimaryKey(Integer id);
+
+    List<User> selectAll();
+
+    int updateByPrimaryKey(User record);
 }

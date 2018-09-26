@@ -13,7 +13,7 @@ public class UserTest extends BaseTest {
     @Test
     public void allUser(){
         System.out.println(("----- selectAll method test ------"));
-        List<User> userList = userMapper.all();
+        List<User> userList = userMapper.selectAll();
         userList.forEach(System.out::println);
     }
 }

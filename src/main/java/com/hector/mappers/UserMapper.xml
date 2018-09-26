@@ -1,0 +1,2266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hector.mappers.UserMapper">
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from users
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, age
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hector.models.User">
+    update users
+    set name = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, name, age
+    from users
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, age
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="USER" jdbcType="CHAR" property="user" />
+    <result column="CURRENT_CONNECTIONS" jdbcType="BIGINT" property="currentConnections" />
+    <result column="TOTAL_CONNECTIONS" jdbcType="BIGINT" property="totalConnections" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+      )
+    values (#{user,jdbcType=CHAR}, #{currentConnections,jdbcType=BIGINT}, #{totalConnections,jdbcType=BIGINT}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, address
+      )
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{address,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, age
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, age
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="role_type" jdbcType="INTEGER" property="roleType" />
+    <result column="cool_id" jdbcType="INTEGER" property="coolId" />
+    <result column="is_suadmin" jdbcType="INTEGER" property="isSuadmin" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, password, 
+      remember_token, tel, role_type, 
+      cool_id, is_suadmin, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{roleType,jdbcType=INTEGER}, 
+      #{coolId,jdbcType=INTEGER}, #{isSuadmin,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, password, remember_token, tel, role_type, cool_id, is_suadmin, created_at, 
+    updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="is_fresh_graduate" jdbcType="TINYINT" property="isFreshGraduate" />
+    <result column="qq_number" jdbcType="VARCHAR" property="qqNumber" />
+    <result column="is_completed" jdbcType="TINYINT" property="isCompleted" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      real_name, is_fresh_graduate, qq_number, 
+      is_completed, created_at, updated_at, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{realName,jdbcType=VARCHAR}, #{isFreshGraduate,jdbcType=TINYINT}, #{qqNumber,jdbcType=VARCHAR}, 
+      #{isCompleted,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    real_name, is_fresh_graduate, qq_number, is_completed, created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, model, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{model,jdbcType=VARCHAR}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, model, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, mobile, password, 
+      remember_token, created_at, updated_at
+      )
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, mobile, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="USER" jdbcType="CHAR" property="user" />
+    <result column="CURRENT_CONNECTIONS" jdbcType="BIGINT" property="currentConnections" />
+    <result column="TOTAL_CONNECTIONS" jdbcType="BIGINT" property="totalConnections" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+      )
+    values (#{user,jdbcType=CHAR}, #{currentConnections,jdbcType=BIGINT}, #{totalConnections,jdbcType=BIGINT}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, address
+      )
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{address,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, age
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, age
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="role_type" jdbcType="INTEGER" property="roleType" />
+    <result column="cool_id" jdbcType="INTEGER" property="coolId" />
+    <result column="is_suadmin" jdbcType="INTEGER" property="isSuadmin" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, password, 
+      remember_token, tel, role_type, 
+      cool_id, is_suadmin, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{roleType,jdbcType=INTEGER}, 
+      #{coolId,jdbcType=INTEGER}, #{isSuadmin,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, password, remember_token, tel, role_type, cool_id, is_suadmin, created_at, 
+    updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="is_fresh_graduate" jdbcType="TINYINT" property="isFreshGraduate" />
+    <result column="qq_number" jdbcType="VARCHAR" property="qqNumber" />
+    <result column="is_completed" jdbcType="TINYINT" property="isCompleted" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      real_name, is_fresh_graduate, qq_number, 
+      is_completed, created_at, updated_at, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{realName,jdbcType=VARCHAR}, #{isFreshGraduate,jdbcType=TINYINT}, #{qqNumber,jdbcType=VARCHAR}, 
+      #{isCompleted,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    real_name, is_fresh_graduate, qq_number, is_completed, created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, model, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{model,jdbcType=VARCHAR}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, model, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, mobile, password, 
+      remember_token, created_at, updated_at
+      )
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, mobile, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="USER" jdbcType="CHAR" property="user" />
+    <result column="CURRENT_CONNECTIONS" jdbcType="BIGINT" property="currentConnections" />
+    <result column="TOTAL_CONNECTIONS" jdbcType="BIGINT" property="totalConnections" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+      )
+    values (#{user,jdbcType=CHAR}, #{currentConnections,jdbcType=BIGINT}, #{totalConnections,jdbcType=BIGINT}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, address
+      )
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{address,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, age
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, age
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="role_type" jdbcType="INTEGER" property="roleType" />
+    <result column="cool_id" jdbcType="INTEGER" property="coolId" />
+    <result column="is_suadmin" jdbcType="INTEGER" property="isSuadmin" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, password, 
+      remember_token, tel, role_type, 
+      cool_id, is_suadmin, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{roleType,jdbcType=INTEGER}, 
+      #{coolId,jdbcType=INTEGER}, #{isSuadmin,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, password, remember_token, tel, role_type, cool_id, is_suadmin, created_at, 
+    updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="is_fresh_graduate" jdbcType="TINYINT" property="isFreshGraduate" />
+    <result column="qq_number" jdbcType="VARCHAR" property="qqNumber" />
+    <result column="is_completed" jdbcType="TINYINT" property="isCompleted" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      real_name, is_fresh_graduate, qq_number, 
+      is_completed, created_at, updated_at, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{realName,jdbcType=VARCHAR}, #{isFreshGraduate,jdbcType=TINYINT}, #{qqNumber,jdbcType=VARCHAR}, 
+      #{isCompleted,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    real_name, is_fresh_graduate, qq_number, is_completed, created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, model, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{model,jdbcType=VARCHAR}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, model, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, mobile, password, 
+      remember_token, created_at, updated_at
+      )
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, mobile, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="USER" jdbcType="CHAR" property="user" />
+    <result column="CURRENT_CONNECTIONS" jdbcType="BIGINT" property="currentConnections" />
+    <result column="TOTAL_CONNECTIONS" jdbcType="BIGINT" property="totalConnections" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+      )
+    values (#{user,jdbcType=CHAR}, #{currentConnections,jdbcType=BIGINT}, #{totalConnections,jdbcType=BIGINT}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, address
+      )
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{address,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, age
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, age
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="role_type" jdbcType="INTEGER" property="roleType" />
+    <result column="cool_id" jdbcType="INTEGER" property="coolId" />
+    <result column="is_suadmin" jdbcType="INTEGER" property="isSuadmin" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, password, 
+      remember_token, tel, role_type, 
+      cool_id, is_suadmin, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{roleType,jdbcType=INTEGER}, 
+      #{coolId,jdbcType=INTEGER}, #{isSuadmin,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, password, remember_token, tel, role_type, cool_id, is_suadmin, created_at, 
+    updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="is_fresh_graduate" jdbcType="TINYINT" property="isFreshGraduate" />
+    <result column="qq_number" jdbcType="VARCHAR" property="qqNumber" />
+    <result column="is_completed" jdbcType="TINYINT" property="isCompleted" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      real_name, is_fresh_graduate, qq_number, 
+      is_completed, created_at, updated_at, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{realName,jdbcType=VARCHAR}, #{isFreshGraduate,jdbcType=TINYINT}, #{qqNumber,jdbcType=VARCHAR}, 
+      #{isCompleted,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    real_name, is_fresh_graduate, qq_number, is_completed, created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, model, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{model,jdbcType=VARCHAR}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, model, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, mobile, password, 
+      remember_token, created_at, updated_at
+      )
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, mobile, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="USER" jdbcType="CHAR" property="user" />
+    <result column="CURRENT_CONNECTIONS" jdbcType="BIGINT" property="currentConnections" />
+    <result column="TOTAL_CONNECTIONS" jdbcType="BIGINT" property="totalConnections" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+      )
+    values (#{user,jdbcType=CHAR}, #{currentConnections,jdbcType=BIGINT}, #{totalConnections,jdbcType=BIGINT}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, address
+      )
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{address,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, age
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, age
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="role_type" jdbcType="INTEGER" property="roleType" />
+    <result column="cool_id" jdbcType="INTEGER" property="coolId" />
+    <result column="is_suadmin" jdbcType="INTEGER" property="isSuadmin" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, password, 
+      remember_token, tel, role_type, 
+      cool_id, is_suadmin, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{roleType,jdbcType=INTEGER}, 
+      #{coolId,jdbcType=INTEGER}, #{isSuadmin,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, password, remember_token, tel, role_type, cool_id, is_suadmin, created_at, 
+    updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="is_fresh_graduate" jdbcType="TINYINT" property="isFreshGraduate" />
+    <result column="qq_number" jdbcType="VARCHAR" property="qqNumber" />
+    <result column="is_completed" jdbcType="TINYINT" property="isCompleted" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      real_name, is_fresh_graduate, qq_number, 
+      is_completed, created_at, updated_at, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{realName,jdbcType=VARCHAR}, #{isFreshGraduate,jdbcType=TINYINT}, #{qqNumber,jdbcType=VARCHAR}, 
+      #{isCompleted,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    real_name, is_fresh_graduate, qq_number, is_completed, created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, model, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{model,jdbcType=VARCHAR}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, model, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, mobile, password, 
+      remember_token, created_at, updated_at
+      )
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, mobile, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="USER" jdbcType="CHAR" property="user" />
+    <result column="CURRENT_CONNECTIONS" jdbcType="BIGINT" property="currentConnections" />
+    <result column="TOTAL_CONNECTIONS" jdbcType="BIGINT" property="totalConnections" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+      )
+    values (#{user,jdbcType=CHAR}, #{currentConnections,jdbcType=BIGINT}, #{totalConnections,jdbcType=BIGINT}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, address
+      )
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{address,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, age
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, age
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="role_type" jdbcType="INTEGER" property="roleType" />
+    <result column="cool_id" jdbcType="INTEGER" property="coolId" />
+    <result column="is_suadmin" jdbcType="INTEGER" property="isSuadmin" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, password, 
+      remember_token, tel, role_type, 
+      cool_id, is_suadmin, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{roleType,jdbcType=INTEGER}, 
+      #{coolId,jdbcType=INTEGER}, #{isSuadmin,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, password, remember_token, tel, role_type, cool_id, is_suadmin, created_at, 
+    updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="is_fresh_graduate" jdbcType="TINYINT" property="isFreshGraduate" />
+    <result column="qq_number" jdbcType="VARCHAR" property="qqNumber" />
+    <result column="is_completed" jdbcType="TINYINT" property="isCompleted" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      real_name, is_fresh_graduate, qq_number, 
+      is_completed, created_at, updated_at, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{realName,jdbcType=VARCHAR}, #{isFreshGraduate,jdbcType=TINYINT}, #{qqNumber,jdbcType=VARCHAR}, 
+      #{isCompleted,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    real_name, is_fresh_graduate, qq_number, is_completed, created_at, updated_at, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="total_consume" jdbcType="DECIMAL" property="totalConsume" />
+    <result column="rebate_available" jdbcType="DECIMAL" property="rebateAvailable" />
+    <result column="rebate_payed" jdbcType="DECIMAL" property="rebatePayed" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, open_id, tel, 
+      name, email, password, 
+      remember_token, money, score, 
+      birthday, avatar_url, gender, 
+      province, city, country, 
+      total_consume, rebate_available, rebate_payed, 
+      created_at, updated_at, model, 
+      address)
+    values (#{id,jdbcType=INTEGER}, #{openId,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{score,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{avatarUrl,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{totalConsume,jdbcType=DECIMAL}, #{rebateAvailable,jdbcType=DECIMAL}, #{rebatePayed,jdbcType=DECIMAL}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{model,jdbcType=VARCHAR}, 
+      #{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, open_id, tel, name, email, password, remember_token, money, score, birthday, 
+    avatar_url, gender, province, city, country, total_consume, rebate_available, rebate_payed, 
+    created_at, updated_at, model, address
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, mobile, password, 
+      remember_token, created_at, updated_at
+      )
+    values (#{id,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, mobile, password, remember_token, created_at, updated_at
+    from users
+  </select>
+  <resultMap id="BaseResultMap" type="com.hector.models.User">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hector.models.User">
+    insert into users (id, name, email, 
+      password, remember_token, created_at, 
+      updated_at)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, email, password, remember_token, created_at, updated_at
+    from users
+  </select>
+</mapper>

@@ -14,11 +14,4 @@ public class HomeController {
 
     @Autowired
     UserMapper userMapper;
-
-    @ResponseBody
-    @GetMapping("/")
-    public List<User> index() {
-        return userMapper.all();
-
-    }
 }
