@@ -14,4 +14,9 @@ public class HomeController {
 
     @Autowired
     UserMapper userMapper;
+
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
 }
