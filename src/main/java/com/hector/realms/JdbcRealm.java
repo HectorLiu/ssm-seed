@@ -1,24 +1,27 @@
 package com.hector.realms;
 
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.realm.AuthenticatingRealm;
 import org.apache.shiro.realm.Realm;
+import org.apache.shiro.util.ByteSource;
 
-public class JdbcRealm implements Realm {
+public class JdbcRealm extends AuthenticatingRealm {
     @Override
-    public String getName() {
-        return "JdbcRealm";
-    }
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
 
-    @Override
-    public boolean supports(AuthenticationToken authenticationToken) {
-        return false;
-    }
+        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
 
-    @Override
-    public AuthenticationInfo getAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        String username = token.getUsername();
+        String password =  String.valueOf(token.getPassword());
 
-        return null;
+        if (username.equals("hector") && password.equals("123456")){
+            ByteSource bytes = ByteSource.Util.bytes(password);
+            SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(username, password, this.getName());
+            return  info;
+        }
+        else{
+            throw new UnknownAccountException("用户名不存在");
+        }
+
     }
 }

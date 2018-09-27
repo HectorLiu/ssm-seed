@@ -11,7 +11,6 @@
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <!--<property name="cacheManager" ref="cacheManager"/>-->
         <!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. -->
-        <property name="sessionMode" value="native"/>
         <property name="realm" ref="jdbcRealm"/>
     </bean>
 
@@ -31,19 +30,19 @@
          Many other realm implementations can be used too (PropertiesRealm,
          LdapRealm, etc. -->
     <bean id="jdbcRealm" class="com.hector.realms.JdbcRealm">
-        <property name="name" value="jdbcRealm"/>
-        <property name="dataSource">
-            <ref bean="dataSource"/>
-        </property>
-        <property name="credentialsMatcher">
-            <!-- The 'bootstrapDataPopulator' Sha256 hashes the password
-                 (using the username as the salt) then base64 encodes it: -->
-            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
-                <property name="hashAlgorithmName" value="SHA-256"/>
-                <!-- true means hex encoded, false means base64 encoded -->
-                <property name="storedCredentialsHexEncoded" value="false"/>
-            </bean>
-        </property>
+        <!--<property name="name" value="jdbcRealm"/>-->
+        <!--<property name="dataSource">-->
+            <!--<ref bean="dataSource"/>-->
+        <!--</property>-->
+        <!--<property name="credentialsMatcher">-->
+            <!--&lt;!&ndash; The 'bootstrapDataPopulator' Sha256 hashes the password-->
+                 <!--(using the username as the salt) then base64 encodes it: &ndash;&gt;-->
+            <!--<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">-->
+                <!--<property name="hashAlgorithmName" value="SHA-256"/>-->
+                <!--&lt;!&ndash; true means hex encoded, false means base64 encoded &ndash;&gt;-->
+                <!--<property name="storedCredentialsHexEncoded" value="false"/>-->
+            <!--</bean>-->
+        <!--</property>-->
     </bean>
 
     <!-- =========================================================
@@ -65,11 +64,6 @@
         <property name="securityManager" ref="securityManager"/>
     </bean>
 
-    <!-- Secure Spring remoting:  Ensure any Spring Remoting method invocations can be associated
-         with a Subject for security checks. -->
-    <bean id="secureRemoteInvocationExecutor" class="org.apache.shiro.spring.remoting.SecureRemoteInvocationExecutor">
-        <property name="securityManager" ref="securityManager"/>
-    </bean>
 
     <!-- Define the Shiro Filter here (as a FactoryBean) instead of directly in web.xml -
          web.xml uses the DelegatingFilterProxy to access this bean.  This allows us
@@ -79,7 +73,7 @@
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/login"/>
         <property name="successUrl" value="/dashboard"/>
-        <property name="unauthorizedUrl" value='/unauthorized"/>
+        <property name="unauthorizedUrl" value="/unauthorized"/>
         <!-- The 'filters' property is not necessary since any declared javax.servlet.Filter bean
              defined will be automatically acquired and available via its beanName in chain
              definitions, but you can perform overrides or parent/child consolidated configuration

@@ -8,8 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-hello index
-
+ dashboard page
 </body>
 </html>
 

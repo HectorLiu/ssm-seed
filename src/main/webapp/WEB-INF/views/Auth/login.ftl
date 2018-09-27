@@ -8,8 +8,13 @@
     <title>Document</title>
 </head>
 <body>
-hello index
+<form action="/login" method="POST">
+    <label for="username">用户名：</label>
+    <input type="text" name="username">
+    <label for="password">密码：</label>
+    <input type="password" name="password">
 
+    <input type="submit">
+</form>
 </body>
 </html>
-
