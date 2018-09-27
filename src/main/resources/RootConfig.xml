@@ -66,4 +66,6 @@
 
     <!--扫描所有的mapper接口, 自动注入-->
     <mybatis:scan base-package="com.hector.mappers"/>
+
+    <import resource="classpath:SecurityConfig.xml"/>
 </beans>
