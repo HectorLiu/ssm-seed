@@ -12,14 +12,14 @@ public class JdbcRealm extends AuthenticatingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
 
         String username = token.getUsername();
-        String password =  String.valueOf(token.getPassword());
+        String password = "7fa914dc322d180eb14d348cec76814b";
 
-        if (username.equals("hector") && password.equals("123456")){
-            ByteSource bytes = ByteSource.Util.bytes(password);
-            SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(username, password, this.getName());
-            return  info;
-        }
-        else{
+        if (username.equals("hector")) {
+            ByteSource salt = ByteSource.Util.bytes(username);
+//            SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(username, password, this.getName());
+            SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(username, password, salt, this.getName());
+            return info;
+        } else {
             throw new UnknownAccountException("用户名不存在");
         }
 
